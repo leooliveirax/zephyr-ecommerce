@@ -1,12 +1,13 @@
+import { ModuleFederationConfig } from '@nx/module-federation';
+import {
+  NxModuleFederationDevServerPlugin,
+  NxModuleFederationPlugin,
+} from '@nx/module-federation/rspack';
 import { NxAppRspackPlugin } from '@nx/rspack/app-plugin';
 import { NxReactRspackPlugin } from '@nx/rspack/react-plugin';
-import {
-  NxModuleFederationPlugin,
-  NxModuleFederationDevServerPlugin,
-} from '@nx/module-federation/rspack';
-import { ModuleFederationConfig } from '@nx/module-federation';
 import { join } from 'path';
 
+import { withZephyr } from 'zephyr-rspack-plugin';
 import baseConfig from './module-federation.config';
 
 const prodConfig: ModuleFederationConfig = {
@@ -35,7 +36,7 @@ const prodConfig: ModuleFederationConfig = {
   ],
 };
 
-export default {
+export default withZephyr()({
   output: {
     path: join(__dirname, 'dist'),
     publicPath: 'auto',
@@ -67,4 +68,4 @@ export default {
     new NxModuleFederationPlugin({ config: prodConfig }, { dts: false }),
     new NxModuleFederationDevServerPlugin({ config: prodConfig }),
   ],
-};
+});
