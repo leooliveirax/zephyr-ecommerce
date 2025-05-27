@@ -1,0 +1,22 @@
+{
+  "files": [],
+  "include": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    },
+    {
+      "path": "../header"
+    },
+    {
+      "path": "../products"
+    },
+    {
+      "path": "../cart"
+    }
+  ],
+  "extends": "../../tsconfig.base.json"
+}

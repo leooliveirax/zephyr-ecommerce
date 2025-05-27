@@ -16,6 +16,12 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "es2022",
-    "customConditions": ["development"]
+    "customConditions": ["development"],
+    "paths": {
+      "cart/Module": ["apps/cart/src/remote-entry.ts"],
+      "header/Module": ["apps/header/src/remote-entry.ts"],
+      "products/Module": ["apps/products/src/remote-entry.ts"]
+    },
+    "baseUrl": "."
   }
 }
